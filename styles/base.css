@@ -1,0 +1,121 @@
+:root{
+    --primary-color: rgb(0 74 101);
+    --secondary-color: #FFF;
+    --accent1-color: rgb(224, 224, 134);
+    
+    --heading-font: Roboto, Sans-serif;
+    --paragraph-font: Roboto, Sans-serif;
+
+    --nav-background-color: rgb(48, 48, 48);
+    --nav-link-color: white;
+    --nav-hover-link-color: #6C4436;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+       background-color: var(--primary-color);  
+       color: var(--secondary-color);
+}
+
+
+nav {
+    padding: 15px;
+    background-color: var(--nav-background-color) ;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    color: var(--nav-link-color) ;
+    text-decoration: none;
+}
+
+nav a:hover {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+h1,h2,h3{
+    font-family: var(--heading-font);
+    padding: 20px 0px;
+    text-align: center;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: auto;
+    padding: 20px;
+    font-family: var(--paragraph-font);
+    max-width: 900px;
+}
+
+.card {
+    border-radius: 25px;
+    border: rgba(0, 0, 0, 0.5);
+    border-style: solid ;
+    margin: 0 5px ;   
+}
+
+.card img{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.card h2{
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+
+}
+
+.web-ressources{
+    padding: 25px;
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+li{
+    margin: 10px;
+}
+
+h3{
+    margin: 0 15px;
+    padding-bottom: 1%;
+    border-bottom: 1px solid #555555 ;
+}
+
+.bio, .country{
+    padding: 15px;
+    display: flex;
+}
+
+.bio p, .country p{
+    padding: 10px;
+}
+
+
+footer{
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 10px;
+    color: var(--secondary-color);
+}
+
+#lastModified{
+    color: var(--accent1-color);
+}
+
+
+
+
+
+
