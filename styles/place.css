@@ -1,0 +1,79 @@
+:root{
+    --nav-color: white;    
+    --nav-hover-color: black;   
+
+
+    --background-color: #00573F;
+    --nav-hover-background-color: blanchedalmond;    
+
+    --background-color-transparence: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Sans-serif;
+}
+
+header {
+    background-color: var(--background-color);
+    color: var(--nav-color);
+    padding: 1rem;
+}
+
+h1{
+    text-align: center;
+}
+
+.hero img{
+    margin-top: .5rem;
+    width: 100%;
+}
+
+.card{
+    text-align: center;
+    margin: 1rem;
+    padding-bottom: 1rem;
+    border: 1px solid #BBB;
+    min-width: 250px;
+}
+
+.tuple {
+    margin: .3rem;
+    display: flex;
+    gap: 20px;
+}
+
+.tuple label {
+    font-weight: 700;
+    flex: 1 1 50%;
+    text-align: end;
+}
+
+.tuple p {
+    flex: 1 1 50%;
+    text-align: start;
+}
+
+
+h2 {
+    margin: 2rem;
+    text-align: center;
+}
+
+.weather-header{
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
+
+
+
+footer{
+    text-align: center;
+    background-color: var(--background-color);
+    padding: 10px;
+    color: var(--nav-color);
+}
+
