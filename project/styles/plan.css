@@ -1,0 +1,77 @@
+:root {
+  --primary: #79C0FF;
+  --accent: #58A6FF;
+  --secondary-text: #C9D1D9;
+  --background: #101D31;
+  --typeface: #F2DDCC;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Bree Serif", serif;
+  background-color: var(--background);
+  color: var(--typeface);
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+}
+
+.tagline {
+  font-size: 1rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+h1, h2 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 0.25rem;
+  margin-top: 1.5rem;
+}
+
+p, li {
+  margin: 0.5rem 0;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+a {
+  color: var(--typeface);
+  text-decoration: underline;
+}
+
+.color-block {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid var(--primary);
+  border-radius: 6px;
+}
+
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  border-top: 1px solid var(--accent);
+  padding-top: 1rem;
+  color: var(--primary);
+}
