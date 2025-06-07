@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--color-secondary);
   color: var(--color-text-light);
   line-height: 1.6;
