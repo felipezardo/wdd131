@@ -1,13 +1,13 @@
 :root{
-    --primary-color: rgb(0 74 101);
-    --secondary-color: #FFF;
+    --primary-color: #101D31;
+    --secondary-color: #F2DDCC;
     --accent1-color: rgb(224, 224, 134);
     
     --heading-font: Roboto, Sans-serif;
     --paragraph-font: Roboto, Sans-serif;
 
-    --nav-background-color: rgb(48, 48, 48);
-    --nav-link-color: white;
+    --nav-background-color: #58A6FF;
+    --nav-link-color: #101D31;
     --nav-hover-link-color: #6C4436;
 }
 
@@ -57,7 +57,7 @@ main {
 
 .card {
     border-radius: 25px;
-    border: rgba(0, 0, 0, 0.5);
+    border: var(--primary-color) 4px solid;
     border-style: solid ;
     margin: 0 5px ;   
 }

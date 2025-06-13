@@ -1,0 +1,293 @@
+:root {
+  --primary: #79C0FF;
+  --accent: #58A6FF;
+  --secondary-text: #C9D1D9;
+  --background: #101D31;
+  --typeface: #F2DDCC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+body {
+  font-family: "Bree Serif", serif;
+  background: var(--background);
+  color: var(--typeface);
+  text-align: center;
+  font-size: large;
+}
+
+header nav {
+  margin-top: 20px;
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color:  var(--typeface); 
+}
+
+header nav a:hover {
+  text-decoration: underline;
+  color:  var(--typeface); 
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+button {
+  color: var(--typeface);
+}
+
+/* Unifique estilos base dos botões toggle */
+.about-toggle,
+.project-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--typeface);
+  margin-top: 10px;
+  text-align: left;
+  padding: 0;
+  transition: background 0.2s;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.project-toggle.hidden-fade {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+.project-toggle.fade-in-up {
+  animation: slideFadeIn 0.6s ease forwards;
+}
+
+/* Arrow animation */
+.about-toggle .arrow,
+.project-toggle .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-right: 8px;
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.intro h1 {  
+  font-weight: bold;
+  font-size: 2.5em;
+  margin: 150px 0px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.line1 {
+  font-size: 2em;
+}
+
+.line2 {
+  color: var(--primary);
+  font-size: 5em;
+  font-weight: 900;
+  position: relative;
+  left: 25px;
+  bottom: 65px;
+}
+
+.blinking-dot {
+  display: inline-block;
+  animation: blink 0.6s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Containers alinhados à esquerda */
+.about-section,
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 30px;
+  width: 100%;
+}
+
+/* About content */
+.about-content,
+.project-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  width: 100%;
+}
+
+.about-content.show,
+.project-content.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.about-text {
+  max-width: 60%;
+  text-align: left;
+  font-size: 0.85em;
+  padding-right: 20px;
+}
+
+.about-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.fade-in-up {
+  animation: slideFadeIn 0.6s ease forwards;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Projects */
+.projects-list {
+  padding: 30px 0;
+  gap: 20px;
+}
+
+.project-text {
+  flex: 1;
+  text-align: left;
+  font-size: 1em;
+}
+
+.project-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-img-mobile {
+  width: 100px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+}
+
+.project-img-desktop {
+  width: 200px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bree Serif', serif;
+  color: var(--typeface);
+}
+
+.contact-form label {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;  
+}
+
+.contact-form button {
+  padding: 0.9rem;
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--accent);
+}
+
+/* Contact form validation styles */
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  text-align: left;
+  margin-top: 5px;
+  display: block;
+  height: 1em;
+}
+
+.success-message {
+  color: #79ffae;
+  margin-top: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+input:invalid,
+textarea:invalid {
+  border: 1px solid #58A6FF;
+}
+
+input:focus:invalid,
+textarea:focus:invalid {
+  outline-color: #ff6b6b;
+}
+
+.hidden-message {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}

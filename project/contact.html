@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zardo Portfolio</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>
+        <div id="typewriter-line1" class="line1"></div>
+        <div id="typewriter-line2" class="line2">
+          <span id="zardo-text"></span><span class="blinking-dot">.</span>
+        </div>
+      </h1>
+    </section>
+
+    <section>
+      <form class="contact-form" id="contactForm" action="#" method="POST" novalidate>
+        
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <span class="error-message" id="nameError"></span>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <span class="error-message" id="emailError"></span>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+        <span class="error-message" id="messageError"></span>
+
+        <button type="submit">Send</button>
+        <p id="formSuccess" class="success-message"></p>
+      </form>
+
+        <div id="confirmationMessage" class="hidden-message"></div>
+
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
