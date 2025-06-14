@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => btn.classList.remove("fade-in-up"), 700);
           }, idx * 250);
         });
+        
       }
     }
   }

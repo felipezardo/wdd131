@@ -474,3 +474,40 @@ textarea:focus:invalid {
     font-size: 0.95em;
   }
 }
+
+footer {
+  width: 100vw;
+  background: var(--background);
+  color: var(--secondary-text);
+  text-align: center;
+  padding: 24px 10px 12px 10px;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  border-top: 1px solid var(--primary);
+  
+  opacity: 1;
+  transition: opacity 0.8s;
+}
+
+.footer-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.footer-fade-in {
+  opacity: 1;
+  animation: slideFadeIn 0.8s ease;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 250px; /* Ajuste conforme a altura do seu footer */
+}
+
+@media (max-width: 600px) {
+  footer {
+    font-size: 0.95em;
+    padding: 16px 5px 8px 5px;
+  }
+}
