@@ -1,12 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Typewriter effect
+  const projects = [
+    {
+      title: "Modern Starbucks-Inspired Website – React, Vite & Styled-Components",
+      description: "Responsive institutional website built with React, featuring route-based navigation, dynamic styling using styled-components, and a focus on interactivity and visual experience.",
+      url: "https://desafio-final-starbucks-zardo.vercel.app/",
+      imageMobile: "images/mobile1.png",
+      imageDesktop: "images/desktop1.png"
+    },
+    {
+      title: "L'Oréal Landing Page – Responsive HTML & SCSS",
+      description: "A modern, fully responsive landing page inspired by L'Oréal, built with semantic HTML and styled using SCSS. Features clean design, mobile-friendly layout, and modular, maintainable code structure.",
+      url: "https://felipezardo.github.io/modulo1-desafioFinal-vnw/",
+      imageMobile: "images/mobile2.png",
+      imageDesktop: "images/desktop2.png"
+    },
+    {
+      title: "Project 3 - In construction",
+      description: "Coming soon",
+      url: "#",
+      imageMobile: "images/mobile3.png",
+      imageDesktop: "images/desktop3.png"
+    }
+  ];
+
+  // --- Render projects dynamically if on projects page ---
+  const pathname = window.location.pathname;
+  if (pathname.includes("projects")) {
+    const projectsList = document.querySelector(".projects-list");
+    projects.forEach((project) => {
+      // Create button
+      const button = document.createElement("button");
+      button.className = "project-toggle hidden-fade";
+      button.innerHTML = `<span class="arrow">&#9654;</span> ${project.title}`;
+
+      // Create content div
+      const content = document.createElement("div");
+      content.className = "project-content hidden";
+      content.innerHTML = `
+        <div class="project-text">
+          <p>${project.description}</p>
+          ${project.url !== "#" ? `<a href="${project.url}" target="_blank">See more...</a>` : ""}
+        </div>
+        <div class="project-images">
+          <img src="${project.imageMobile}" alt="${project.title} Mobile" class="project-img-mobile" loading="lazy"/>
+          <img src="${project.imageDesktop}" alt="${project.title} Desktop" class="project-img-desktop" loading="lazy"/>
+        </div>
+      `;
+
+      // Append to projects list
+      projectsList.appendChild(button);
+      projectsList.appendChild(content);
+    });
+  }
+
+  // --- Typewriter effect ---
   const line1 = document.getElementById("typewriter-line1");
   const line2 = document.getElementById("zardo-text") || document.getElementById("typewriter-line2");
   const blinkingDot = document.querySelector(".blinking-dot");
   const aboutBtn = document.getElementById("toggleAbout");
 
-  // Detect page
-  const pathname = window.location.pathname;
   let text1 = "";
   let text2 = "";
 
@@ -19,17 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     text2 = "ZARDO";
   }
 
-  // Hide elements before typing
   if (blinkingDot) blinkingDot.style.display = "none";
   if (aboutBtn) aboutBtn.style.display = "none";
-
-  // Esconde os botões dos projetos até o texto ser exibido
-  if (pathname.includes("projects")) {
-    const projectToggles = document.querySelectorAll(".project-toggle");
-    projectToggles.forEach(btn => {
-      btn.classList.add("hidden-fade");
-    });
-  }
 
   let i = 0;
   let j = 0;
@@ -50,35 +93,32 @@ document.addEventListener("DOMContentLoaded", () => {
       j++;
       setTimeout(typeLine2, 80);
     } else {
-      // Show blinking dot
       if (blinkingDot) blinkingDot.style.display = "inline-block";
-      // Show About button with animation (only on home)
       if (aboutBtn && (pathname.endsWith("index.html") || pathname === "/" || pathname === "")) {
         aboutBtn.style.display = "inline-block";
         aboutBtn.classList.add("fade-in-up");
       }
-      // Show project buttons in cascade (only on projects page)
       if (pathname.includes("projects")) {
+        // Fade-in cascade for project buttons
         const projectToggles = document.querySelectorAll(".project-toggle");
         projectToggles.forEach((btn, idx) => {
           setTimeout(() => {
             btn.classList.remove("hidden-fade");
             btn.classList.add("fade-in-up");
             setTimeout(() => btn.classList.remove("fade-in-up"), 700);
-          }, idx * 250); // 250ms de diferença entre cada botão
+          }, idx * 250);
         });
       }
     }
   }
 
-  // Start typing
   if (text1) {
     typeLine1();
   } else {
     typeLine2();
   }
 
-  // About me toggle with fade-in
+  // --- About me toggle with fade-in ---
   if (aboutBtn) {
     aboutBtn.addEventListener("click", function () {
       const content = document.getElementById("aboutContent");
@@ -87,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isShowing) {
         content.classList.add("fade-in-up");
-        setTimeout(() => content.classList.remove("fade-in-up"), 600);
+        setTimeout(() => content.classList.remove("fade-in-up"), 800);
       }
 
       content.classList.toggle("show");
@@ -96,26 +136,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Project toggles with fade-in
-  const projectToggles = document.querySelectorAll(".project-toggle");
-  projectToggles.forEach((btn) => {
-    btn.addEventListener("click", function () {
+  // --- Project toggles with fade-in ---
+  // Use event delegation to handle dynamically created buttons
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".project-toggle");
+    if (btn) {
       const content = btn.nextElementSibling;
       const arrow = btn.querySelector(".arrow");
       const isShowing = content.classList.contains("show");
 
       if (!isShowing) {
         content.classList.add("fade-in-up");
-        setTimeout(() => content.classList.remove("fade-in-up"), 600);
+        setTimeout(() => content.classList.remove("fade-in-up"), 800);
       }
 
       content.classList.toggle("show");
       content.classList.toggle("hidden");
       arrow.classList.toggle("rotate");
-    });
+    }
   });
 
-  // Contact form validation and queue (only on contact page)
+  // --- Contact form validation and queue (only on contact page) ---
   const form = document.getElementById("contactForm");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -123,7 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let valid = true;
 
-      // Reset all messages
       document.getElementById("nameError").textContent = "";
       document.getElementById("emailError").textContent = "";
       document.getElementById("messageError").textContent = "";
@@ -133,36 +173,30 @@ document.addEventListener("DOMContentLoaded", () => {
       const email = document.getElementById("email");
       const message = document.getElementById("message");
 
-      // Name validation
       if (name.value.trim().length < 2) {
         document.getElementById("nameError").textContent = "Please enter a valid name.";
         valid = false;
       }
 
-      // Email validation
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailPattern.test(email.value.trim())) {
         document.getElementById("emailError").textContent = "Please enter a valid email address.";
         valid = false;
       }
 
-      // Message validation
       if (message.value.trim().length < 10) {
         document.getElementById("messageError").textContent = "Message must be at least 10 characters.";
         valid = false;
       }
 
-      // If valid, simulate form submission
       if (valid) {
         document.getElementById("formSuccess").textContent = "Message sent successfully!";
         form.reset();
 
-        // Queue logic
         let queuePosition = localStorage.getItem("serviceQueue");
         queuePosition = queuePosition ? parseInt(queuePosition) + 1 : 1;
         localStorage.setItem("serviceQueue", queuePosition);
 
-        // Confirmation message
         const messageDiv = document.getElementById("confirmationMessage");
         if (messageDiv) {
           messageDiv.innerHTML = `
