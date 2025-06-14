@@ -60,7 +60,7 @@ button {
   margin-top: 10px;
   text-align: left;
   padding: 0;
-  transition: background 0.2s;
+  transition: background 1s;
   width: 100%;
   justify-content: flex-start;
 }
@@ -139,7 +139,7 @@ button {
   margin-top: 20px;
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 1s ease, transform 1s ease;
   pointer-events: none;
   width: 100%;
 }
@@ -158,11 +158,50 @@ button {
   padding-right: 20px;
 }
 
-.about-avatar img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.about-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.avatar-bg {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #101D31, #2d66a7, #79C0FF);
+  background-size: 180% 180%;
+  animation: gradient-animation 5s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-bg img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  box-shadow: 0 0 0 8px var(--background);
+}
+
+/* Animação do gradiente */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 .fade-in-up {
   animation: slideFadeIn 0.6s ease forwards;
@@ -186,25 +225,37 @@ button {
 }
 
 .project-text {
-  flex: 1;
+  max-width: 60%;
   text-align: left;
   font-size: 1em;
+  margin-right: 20px;
+}
+
+a{
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover{
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .project-images {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+   grid-template-columns:  1fr 2fr;
   gap: 10px;
 }
 
 .project-img-mobile {
-  width: 100px;
+  width: 150px;
   border-radius: 8px;
   border: 1px solid var(--primary);
 }
 
 .project-img-desktop {
-  width: 200px;
+  width: 400px;
+  height: 300px;
   border-radius: 8px;
   border: 1px solid var(--accent);
 }
